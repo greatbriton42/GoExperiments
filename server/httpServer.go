@@ -9,8 +9,8 @@ import (
 	"strings"
 )
 
-const ledgerFile = "ledger.db"
-const accountFile = "accounts.db"
+const ledgerFile = "db/ledger.db"
+const accountFile = "db/accounts.db"
 
 type Transaction struct {
 	Account string
@@ -56,12 +56,7 @@ func handleWrite(w http.ResponseWriter, r *http.Request) {
 
 	record, _ := json.Marshal(transaction)
 
-	_, err = f.WriteString(string(record) + "|")
-	if err != nil {
-		w.WriteHeader(500)
-		errorMes := fmt.Sprintf("Error Writing to file: %s", err)
-		w.Write([]byte(errorMes))
-	}
+	f.WriteString(string(record) + "|")
 	f.Sync()
 }
 func handleRead(w http.ResponseWriter, r *http.Request) {
