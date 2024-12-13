@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-const accountFile = "../../accounts.db"
+const accountFile = "../../server/db/accounts.db"
 
 func main() {
 	fmt.Println("Running")

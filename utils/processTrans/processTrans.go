@@ -10,8 +10,8 @@ import (
 	"unicode/utf8"
 )
 
-const accountFile = "../../accounts.db"
-const ledgerFile = "../../ledger.db"
+const accountFile = "../../server/db/accounts.db"
+const ledgerFile = "../../server/db/ledger.db"
 
 type Transaction struct {
 	Account string
